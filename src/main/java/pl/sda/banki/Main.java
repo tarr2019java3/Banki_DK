@@ -1,5 +1,12 @@
 package pl.sda.banki;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 //      Zły trop :<
@@ -34,6 +41,20 @@ public class Main {
         System.out.println(user2.getBankAccount().getBalance());
         System.out.println(user3.getBankAccount().getBalance());
         System.out.println(user4.getBankAccount().getBalance());
+
+        List<User> users = new ArrayList<>();
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+        users.add(user4);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            objectMapper.writeValue(new File("listaUzytkownikow.json"), users);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
 
     }
 
