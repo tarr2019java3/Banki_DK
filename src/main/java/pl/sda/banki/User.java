@@ -5,7 +5,7 @@ public class User {
     private String name;
     private String lastName;
     private int age;
-
+    private BankAccount bankAccount;
 
 
     public User(String name, String lastName, int age){
@@ -14,6 +14,13 @@ public class User {
         this.age = age;
     }
 
+    public void setBankAccount(BankAccount bankAccount){
+        this.bankAccount = bankAccount;
+    }
+
+    public BankAccount getBankAccount(){
+        return this.bankAccount;
+    }
 
     public String getName(){
         return name;
